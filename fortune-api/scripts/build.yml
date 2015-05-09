@@ -1,0 +1,13 @@
+platform: linux
+
+image: docker:///golang#1.4
+
+inputs:
+  - name: fortune
+    path: go/src/github.com/bradgignac/concourse-playground
+
+run:
+  path: go/src/github.com/bradgignac/concourse-playground/fortune-api/scripts/build
+
+params:
+  ENV: ci
