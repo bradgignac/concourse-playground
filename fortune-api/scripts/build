@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set -e
+
+RED="31;"
+GREEN="32;"
+
+SCRIPTS=$(dirname $BASH_SOURCE)
+ROOT=$(dirname $SCRIPTS)
+
+PACKAGES=(
+  github.com/golang/lint/golint
+  github.com/tools/godep
+  golang.org/x/tools/cmd/cover
+  golang.org/x/tools/cmd/godoc
+  golang.org/x/tools/cmd/vet
+)
+
+log() {
+  echo -e "\e[$21m==> $1\e[0m"
+}
+
+finish () {
+  if [ "$?" -eq 0 ]
+  then
+    log "Successfully built fortune-api!" $GREEN
+  else
+    log "Failed to build fortune-api!" $RED
+  fi
+}
+
+trap finish EXIT
+
+if [ "$ENV" = "ci" ]
+then
+  log "CI environment detected. Modifying GOPATH..."
+  export GOPATH=$(pwd)/go
+  export PATH=$GOPATH/bin:$PATH
+fi
+
+log "Installing Go tooling..."
+for i in "${PACKAGES[@]}"
+do
+   go get -u $i
+done
+
+cd $ROOT
+
+log "Compiling binary..."
+go build
+
+log "Linting source..."
+golint ./...
+go vet ./...
+
+log "Running tests..."
+go test ./... -coverprofile coverage.out
+go tool cover -html coverage.out -o coverage.html

@@ -1,0 +1,14 @@
+resources:
+  - name: fortune
+    type: git
+    source:
+      uri: https://github.com/bradgignac/concourse-playground
+      branch: master
+
+jobs:
+  - name: fortune-api
+    plan:
+      - get: fortune
+      - task: build
+        file: fortune/fortune-api/scripts/build.yml
+        privileged: true
