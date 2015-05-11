@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+'use strict';
+
+let webpack = require('webpack')
+let WebpackServer = require('webpack-dev-server');
+
+let config = require('../webpack.config');
+let server = new WebpackServer(webpack(config), {
+  contentBase: './build',
+  historyApiFallback: true,
+  hot: true
+});
+
+server.listen(8080, 'localhost', function (err, result) {
+  if (err) {
+    console.log(err)
+  }
+});

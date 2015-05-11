@@ -1,0 +1,16 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>xx Fortune xx</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+  <script src="{%= o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+  {% } %}
+</body>
+</html>

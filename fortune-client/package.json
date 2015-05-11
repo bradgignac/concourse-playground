@@ -1,0 +1,27 @@
+{
+  "name": "fortune-client",
+  "private": true,
+  "main": "app/application.js",
+  "scripts": {
+    "start": "scripts/develop",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-core": "^5.2.17",
+    "babel-jest": "^5.2.0",
+    "babel-loader": "^5.0.0",
+    "css-loader": "^0.12.0",
+    "jest-cli": "^0.4.3",
+    "react": "^0.13.3",
+    "react-hot-loader": "^1.2.7",
+    "style-loader": "^0.12.2",
+    "webpack": "^1.9.4",
+    "webpack-dev-server": "^1.8.2"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ]
+  }
+}
