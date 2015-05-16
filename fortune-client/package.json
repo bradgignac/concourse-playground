@@ -4,24 +4,27 @@
   "main": "app/application.js",
   "scripts": {
     "start": "scripts/develop",
-    "test": "jest"
+    "test": "scripts/test"
+  },
+  "dependencies": {
+    "superagent": "^1.2.0"
   },
   "devDependencies": {
-    "babel-core": "^5.2.17",
-    "babel-jest": "^5.2.0",
+    "babel": "^5.4.3",
     "babel-loader": "^5.0.0",
     "css-loader": "^0.12.0",
-    "jest-cli": "^0.4.3",
+    "eslint": "^0.21.1",
+    "eslint-plugin-react": "^2.3.0",
+    "html-webpack-plugin": "^1.3.0",
+    "jsdom": "^5.4.1",
+    "mocha": "^2.2.5",
+    "nock": "^2.0.1",
     "react": "^0.13.3",
     "react-hot-loader": "^1.2.7",
+    "sinon": "^1.14.1",
+    "sizzle": "^2.2.0",
     "style-loader": "^0.12.2",
     "webpack": "^1.9.4",
     "webpack-dev-server": "^1.8.2"
-  },
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react"
-    ]
   }
 }

@@ -7,7 +7,7 @@
   <title>xx Fortune xx</title>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root" class="fortune-wrapper"></div>
 
   {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
   <script src="{%= o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>

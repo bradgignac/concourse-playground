@@ -1,0 +1,25 @@
+{
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "env": {
+    "es6": true,
+    "mocha": true,
+    "node": true
+  },
+  "globals": {
+    "assert": false,
+    "render": false,
+    "simulate": false,
+    "find": false,
+    "findAll": false
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "quotes": "single",
+    "no-shadow": false
+  }
+}

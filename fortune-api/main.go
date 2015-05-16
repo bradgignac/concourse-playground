@@ -6,6 +6,7 @@ import (
 
 	"github.com/bradgignac/concourse-playground/fortune-api/Godeps/_workspace/src/github.com/codegangsta/cli"
 	"github.com/bradgignac/concourse-playground/fortune-api/Godeps/_workspace/src/github.com/codegangsta/negroni"
+	"github.com/bradgignac/concourse-playground/fortune-api/Godeps/_workspace/src/github.com/rs/cors"
 )
 
 const name = "fortuned"
@@ -32,7 +33,7 @@ func main() {
 		},
 		cli.IntFlag{
 			Name:  "port",
-			Value: 8080,
+			Value: 9000,
 			Usage: "HTTP server port",
 		},
 	}
@@ -47,8 +48,10 @@ func address(host string, port int) string {
 func serve(c *cli.Context) {
 	addr := address(c.String("host"), c.Int("port"))
 	api := NewAPI()
+	cors := cors.New(cors.Options{AllowedOrigins: []string{"*"}})
 
 	server := negroni.New()
+	server.Use(cors)
 	server.Use(negroni.NewRecovery())
 	server.Use(negroni.NewLogger())
 	server.UseHandler(api)

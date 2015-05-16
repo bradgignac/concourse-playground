@@ -11,6 +11,10 @@
 			"ImportPath": "github.com/codegangsta/negroni",
 			"Comment": "v0.1-70-gc7477ad",
 			"Rev": "c7477ad8e330bef55bf1ebe300cf8aa67c492d1b"
+		},
+		{
+			"ImportPath": "github.com/rs/cors",
+			"Rev": "5e4ce6bc0ecd3472f6f943666d84876691be2ced"
 		}
 	]
 }

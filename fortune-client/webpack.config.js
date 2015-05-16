@@ -1,8 +1,8 @@
 'use strict';
 
-let path = require('path');
-let webpack = require('webpack');
-let HTMLWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
+var webpack = require('webpack');
+var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'eval',
@@ -10,7 +10,7 @@ module.exports = {
     fortune: ['./app/application'],
     vendor: ['react'],
     webpack: [
-      'webpack-dev-server/client?http://localhost:8080',
+      'webpack-dev-server/client?http://localhost:8000',
       'webpack/hot/only-dev-server'
     ]
   },

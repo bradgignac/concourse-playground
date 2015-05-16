@@ -2,17 +2,17 @@
 
 'use strict';
 
-let webpack = require('webpack')
-let WebpackServer = require('webpack-dev-server');
+var webpack = require('webpack')
+var WebpackServer = require('webpack-dev-server');
 
-let config = require('../webpack.config');
-let server = new WebpackServer(webpack(config), {
+var config = require('../webpack.config');
+var server = new WebpackServer(webpack(config), {
   contentBase: './build',
   historyApiFallback: true,
   hot: true
 });
 
-server.listen(8080, 'localhost', function (err, result) {
+server.listen(8000, 'localhost', function (err, result) {
   if (err) {
     console.log(err)
   }
