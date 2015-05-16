@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -e
+
+RED="31;"
+GREEN="32;"
+
+SCRIPTS=$(dirname $BASH_SOURCE)
+ROOT=$(dirname $SCRIPTS)
+
+log() {
+  echo -e "\e[$21m==> $1\e[0m"
+}
+
+finish () {
+  if [ "$?" -eq 0 ]
+  then
+    log "Successfully built fortune-api!" $GREEN
+  else
+    log "Failed to build fortune-api!" $RED
+  fi
+}
+
+trap finish EXIT
+
+cd $ROOT
+
+log "Installing dependencies..."
+npm install
+
+log "Linting source..."
+scripts/lint
+
+log "Running tests..."
+scripts/test
