@@ -1,0 +1,13 @@
+platform: linux
+
+image: docker:///iojs#2.0.1
+
+inputs:
+  - name: fortune
+    path: go/src/github.com/bradgignac/concourse-playground
+
+run:
+  path: go/src/github.com/bradgignac/concourse-playground/fortune-client/scripts/build
+
+params:
+  ENV: ci

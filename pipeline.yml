@@ -12,3 +12,8 @@ jobs:
       - task: build
         file: fortune/fortune-api/scripts/build.yml
         privileged: true
+  - name: fortune-client
+    plan:
+      - get: fortune
+      - task: build
+        file: fortune/fortune-client/scripts/build.yml
