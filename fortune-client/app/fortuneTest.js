@@ -32,6 +32,6 @@ describe('Fortune', function () {
       assert.equal(React.findDOMNode(attribution).textContent, 'author, source');
 
       done();
-    }.bind(this), 5);
+    }.bind(this), 10);
   });
 });
