@@ -17,7 +17,7 @@ jobs:
         - get: fortune-api
         - get: concourse-playground
       - task: build
-        file: concourse-playground/fortune-api/build.yml
+        file: concourse-playground/build-api/build.yml
         privileged: true
   - name: fortune-client
     plan:
