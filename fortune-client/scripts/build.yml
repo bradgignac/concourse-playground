@@ -3,7 +3,7 @@ platform: linux
 image: docker:///iojs#2.0.1
 
 inputs:
-  - name: fortune
+  - name: concourse-playground
     path: go/src/github.com/bradgignac/concourse-playground
 
 run:

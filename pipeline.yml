@@ -1,19 +1,26 @@
 resources:
-  - name: fortune
+  - name: fortune-api
+    type: git
+    source:
+      uri: https://github.com/bradgignac/fortune-api
+      branch: master
+  - name: concourse-playground
     type: git
     source:
       uri: https://github.com/bradgignac/concourse-playground
-      branch: master
+      branch: bradgignac/deploy
 
 jobs:
-  - name: fortune-api
+  - name: build-api
     plan:
-      - get: fortune
+      - aggregate:
+        - get: fortune-api
+        - get: concourse-playground
       - task: build
-        file: fortune/fortune-api/scripts/build.yml
+        file: concourse-playground/fortune-api/build.yml
         privileged: true
   - name: fortune-client
     plan:
-      - get: fortune
+      - get: concourse-playground
       - task: build
-        file: fortune/fortune-client/scripts/build.yml
+        file: concourse-playground/fortune-client/scripts/build.yml
